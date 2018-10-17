@@ -1,0 +1,155 @@
+./lib/tic_tac_toe.rb
+  TicTacToe
+    #initialize
+      assigns an instance variable @board to an array with 9 blank spaces " "
+    WIN_COMBINATIONS
+      defines a constant WIN_COMBINATIONS with arrays for each win combination (FAILED - 1)
+    #display_board
+      prints arbitrary arrangements of the board (FAILED - 2)
+    #input_to_index
+      accepts the user's input (a string) as an argument
+      converts the user's input (a string) into an integer
+      converts the user's input from the user-friendly format (on a 1-9 scale) to the array-friendly format (where the first index starts at 0)
+    #move
+      allows "X" player in the top left and "O" in the middle (FAILED - 3)
+    #position_taken?
+      returns true/false based on whether the position on the board is already occupied (FAILED - 4)
+    #valid_move?
+      returns true/false based on whether the position is already occupied (FAILED - 5)
+      checks that the attempted move is within the bounds of the game board (FAILED - 6)
+    #turn_count
+      counts occupied positions (FAILED - 7)
+    #current_player
+      returns the correct player, X, for the third move (FAILED - 8)
+      returns the correct player, O, for the fourth move (FAILED - 9)
+    #turn
+      receives user input via the gets method (FAILED - 10)
+      calls #input_to_index, #valid_move?, and #current_player (FAILED - 11)
+      makes valid moves and displays the board (FAILED - 12)
+      asks for input again after a failed validation (FAILED - 13)
+    #won?
+      returns false for a draw (FAILED - 14)
+      returns the winning combo for a win (FAILED - 15)
+    #full?
+      returns true for a draw (FAILED - 16)
+      returns false for an in-progress game (FAILED - 17)
+    #draw?
+      returns true for a draw (FAILED - 18)
+      returns false for a won game (FAILED - 19)
+      returns false for an in-progress game (FAILED - 20)
+    #over?
+      returns true for a draw (FAILED - 21)
+      returns true for a won game (FAILED - 22)
+      returns false for an in-progress game (FAILED - 23)
+    #winner
+      return X when X won (FAILED - 24)
+      returns O when O won (FAILED - 25)
+      returns nil when no winner (FAILED - 26)
+./lib/tic_tac_toe.rb
+  TicTacToe
+    #play
+      asks for players input on a turn of the game (FAILED - 27)
+      checks if the game is over after every turn (FAILED - 28)
+      plays the first turn of the game (FAILED - 29)
+      plays the first few turns of the game (FAILED - 30)
+      checks if the game is won after every turn (FAILED - 31)
+      checks if the game is draw after every turn (FAILED - 32)
+      stops playing if someone has won (FAILED - 33)
+      congratulates the winner X (FAILED - 34)
+      congratulates the winner O (FAILED - 35)
+      stops playing in a draw (FAILED - 36)
+      prints "Cat's Game!" on a draw (FAILED - 37)
+      plays through an entire game (FAILED - 38)
+bin/tictactoe
+  instantiates an instance of TicTacToe (FAILED - 39)
+  calls #play on the instance of TicTacToe (FAILED - 40)
+Failures:
+1) ./lib/tic_tac_toe.rb TicTacToe WIN_COMBINATIONS defines a constant WIN_COMBINATIONS with arrays for each win combination
+     Failure/Error: expect(TicTacToe::WIN_COMBINATIONS.size).to eq(8)
+     NameError:
+       uninitialized constant TicTacToe::WIN_COMBINATIONS
+     # ./spec/01_tic_tac_toe_spec.rb:14:in `block (4 levels) in <top (required)>'
+  2) ./lib/tic_tac_toe.rb TicTacToe#display_board prints arbitrary arrangements of the board
+     Failure/Error:
+       def display_board(board)
+         puts " #{board[0]} | #{board[1]} | #{board[2]} "
+         puts "-----------"
+         puts " #{board[3]} | #{board[4]} | #{board[5]} "
+         puts "-----------"
+         puts " #{board[6]} | #{board[7]} | #{board[8]} "
+       end
+     ArgumentError:
+       wrong number of arguments (given 0, expected 1)
+     # ./lib/tic_tac_toe.rb:17:in `display_board'
+     # ./spec/01_tic_tac_toe_spec.rb:33:in `block (5 levels) in <top (required)>'
+     # ./spec/spec_helper.rb:32:in `capture_puts'
+     # ./spec/01_tic_tac_toe_spec.rb:33:in `block (4 levels) in <top (required)>'
+  3) ./lib/tic_tac_toe.rb TicTacToe#move allows "X" player in the top left and "O" in the middle
+     Failure/Error: if index >= 0 && index <= 8 && position_taken?(board, index) == false
+     ArgumentError:
+       comparison of String with 0 failed
+     # ./lib/tic_tac_toe.rb:28:in `>='
+     # ./lib/tic_tac_toe.rb:28:in `valid_move?'
+     # ./lib/tic_tac_toe.rb:35:in `move'
+     # ./spec/01_tic_tac_toe_spec.rb:76:in `block (4 levels) in <top (required)>'
+  4) ./lib/tic_tac_toe.rb TicTacToe#position_taken? returns true/false based on whether the position on the board is already occupied
+     Failure/Error: expect(game.position_taken?(index)).to be(true)
+     NoMethodError:
+     undefined method `position_taken?' for #<TicTacToe:0x00000001d07130>
+     # ./spec/01_tic_tac_toe_spec.rb:92:in `block (4 levels) in <top (required)>'
+  5) ./lib/tic_tac_toe.rb TicTacToe#valid_move? returns true/false based on whether the position is already occupied
+     Failure/Error:
+       def valid_move?(board, index)
+       if index >= 0 && index <= 8 && position_taken?(board, index) == false
+         return true
+       else
+         return false
+       end
+     ArgumentError:
+       wrong number of arguments (given 1, expected 2)
+     # ./lib/tic_tac_toe.rb:27:in `valid_move?'
+     # ./spec/01_tic_tac_toe_spec.rb:112:in `block (4 levels) in <top (required)>'
+  6) ./lib/tic_tac_toe.rb TicTacToe#valid_move? checks that the attempted move is within the bounds of the game board
+     Failure/Error:
+       def valid_move?(board, index)
+       if index >= 0 && index <= 8 && position_taken?(board, index) == false
+         return true
+       else
+         return false
+       end
+     ArgumentError:
+       wrong number of arguments (given 1, expected 2)
+     # ./lib/tic_tac_toe.rb:27:in `valid_move?'
+     # ./spec/01_tic_tac_toe_spec.rb:121:in `block (4 levels) in <top (required)>'
+  7) ./lib/tic_tac_toe.rb TicTacToe#turn_count counts occupied positions
+     Failure/Error: expect(game.turn_count).to eq(3)
+     NoMethodError:
+       undefined method `turn_count' for #<TicTacToe:0x00000001c27030>
+     # ./spec/01_tic_tac_toe_spec.rb:131:in `block (4 levels) in <top (required)>'
+     8) ./lib/tic_tac_toe.rb TicTacToe#current_player returns the correct player, X, for the third move
+     Failure/Error: expect(game.current_player).to eq("X")
+     NoMethodError:
+       undefined method `current_player' for #<TicTacToe:0x00000001c13d00>
+     # ./spec/01_tic_tac_toe_spec.rb:146:in `block (4 levels) in <top (required)>'
+  9) ./lib/tic_tac_toe.rb TicTacToe#current_player returns the correct player, O, for the fourth move
+     Failure/Error: expect(game.current_player).to eq("O")
+     NoMethodError:
+       undefined method `current_player' for #<TicTacToe:0x00000001c0e0d0>
+     # ./spec/01_tic_tac_toe_spec.rb:154:in `block (4 levels) in <top (required)>'
+  10) ./lib/tic_tac_toe.rb TicTacToe#turn receives user input via the gets method
+      Failure/Error: game.turn
+      NoMethodError:
+        undefined method `turn' for #<TicTacToe:0x00000001bf8280>
+      # ./spec/01_tic_tac_toe_spec.rb:165:in `block (4 levels) in <top (required)>'
+  11) ./lib/tic_tac_toe.rb TicTacToe#turn calls #input_to_index, #valid_move?, and #current_player
+      Failure/Error: game.turn
+      NoMethodError:
+        undefined method `turn' for #<TicTacToe:0x00000001bdb9f0>
+      # ./spec/01_tic_tac_toe_spec.rb:175:in `block (4 levels) in <top (required)>'
+  12) ./lib/tic_tac_toe.rb TicTacToe#turn makes valid moves and displays the board
+      Failure/Error: game.turn
+      NoMethodError:
+        undefined method `turn' for #<TicTacToe:0x00000001babae8>
+      # ./spec/01_tic_tac_toe_spec.rb:183:in `block (4 levels) in <top (required)>'
+  13) ./lib/tic_tac_toe.rb TicTacToe#turn asks for input again after a failed validation
+      Failure/Error: game.turn
