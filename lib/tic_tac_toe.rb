@@ -49,7 +49,7 @@ end
       @board[index] = "#{current_player}"
       display_board
     else
-      @turn
+      turn
     end
   end
   def turn_count
@@ -129,7 +129,4 @@ end
   end
 end
 
-game = TicTacToe.new
-game.move(0, "X")
-
-game.turn
+# TicTacToe.new.play
